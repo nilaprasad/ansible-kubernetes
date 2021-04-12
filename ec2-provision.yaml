@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  connection: local
   tasks:
     - name: Setting up the Security Group for new instance
       ec2_group:
@@ -24,6 +25,7 @@
           rules_egress:
            - proto: all
              cidr_ip: 0.0.0.0/0
+          vpc_id: vpc-ec38bf91 # Change to your VPC
 
     - name: Provision EC2 instance
       ec2:
@@ -33,7 +35,7 @@
          image: ami-67a6e604 ##Change AMI type if required
          wait: yes
          wait_timeout: 500
-         count: 2 #1 Master - 1 Worker
+         count: 3 #1 Master - 1 Worker
          instance_tags:
             Name: AWS-Ansible
          volumes:
@@ -41,7 +43,7 @@
               volume_type: gp2
               volume_size: 8
          monitoring: yes
-         vpc_subnet_id: subnet-18e7fa93
+         vpc_subnet_id: subnet-d70a309a # Change to your subnet ID in your VPC
          assign_public_ip: yes
          group: Ansible_Security_Group_AWS
       register: ec2
