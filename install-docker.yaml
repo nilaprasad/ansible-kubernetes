@@ -1,0 +1,7 @@
+## Docker Ansible Playbook
+---
+- name: Install Docker
+  sudo: yes
+  tasks:
+     - name: Execute the script
+       command: sh /home/ec2-user/ec2-instance/install-docker.sh

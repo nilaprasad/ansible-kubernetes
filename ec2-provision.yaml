@@ -32,7 +32,7 @@
          key_name: AWS-Ansible
          region: us-east-1
          instance_type: t2.micro
-         image: ami-67a6e604 ##Change AMI type if required
+         image: ami-042e8287309f5df03 # Change AMI to desired AMI
          wait: yes
          wait_timeout: 500
          count: 3 #1 Master - 1 Worker
