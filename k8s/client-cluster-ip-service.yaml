@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: client-cluster-ip-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     component: web
   ports:
-    - port: 3000
+    - port: 80
       targetPort: 3000
